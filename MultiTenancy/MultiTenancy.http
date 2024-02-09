@@ -1,0 +1,32 @@
+@MultiTenancy_HostAddress = https://localhost:7271
+
+GET {{MultiTenancy_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+POST {{MultiTenancy_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  //CreateProductDto
+}
+
+###
+
+GET {{MultiTenancy_HostAddress}}/api/products
+tenant:company2
+###
+
+GET {{MultiTenancy_HostAddress}}/api/products
+
+###
+
+POST {{MultiTenancy_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  //CreateProductDto
+}
+
+###
