@@ -15,7 +15,7 @@ Content-Type: application/json
 ###
 
 GET {{MultiTenancy_HostAddress}}/api/products
-tenant:company2
+tenant:company1
 ###
 
 GET {{MultiTenancy_HostAddress}}/api/products
@@ -24,9 +24,13 @@ GET {{MultiTenancy_HostAddress}}/api/products
 
 POST {{MultiTenancy_HostAddress}}/api/products
 Content-Type: application/json
+tenant:company1
 
-{
-  //CreateProductDto
-}
+  {
+    "id": 5,
+    "name": "co1",
+    "description": "co1",
+    "rate": 42
+  }
 
 ###

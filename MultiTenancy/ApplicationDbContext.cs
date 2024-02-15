@@ -21,7 +21,7 @@ namespace MultiTenancy
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Product>().HasQueryFilter(e => e.TenantId == TenantId);
+          //  modelBuilder.Entity<Product>().HasQueryFilter(e => e.TenantId == TenantId);
             base.OnModelCreating(modelBuilder);
         }
 
@@ -40,14 +40,14 @@ namespace MultiTenancy
             }
         }
 
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-        {
-            foreach (var entry in ChangeTracker.Entries<IMustHaveTenant>().Where(e => e.State == EntityState.Added))
-            {
-                entry.Entity.TenantId = TenantId;
-            }
+        //public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        //{
+        //    foreach (var entry in ChangeTracker.Entries<IMustHaveTenant>().Where(e => e.State == EntityState.Added))
+        //    {
+        //        entry.Entity.TenantId = TenantId;
+        //    }
 
-            return base.SaveChangesAsync(cancellationToken);
-        }
+        //    return base.SaveChangesAsync(cancellationToken);
+        //}
     }
     }
